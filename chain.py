@@ -37,7 +37,7 @@ class Chain:
             )
 
         self.client = Groq(api_key=api_key)
-        self.model = "mixtral-8x7b-32768"
+        self.model = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
     def _complete(self, prompt):
         response = self.client.chat.completions.create(
