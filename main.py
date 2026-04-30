@@ -1,9 +1,7 @@
-# llama3-8b-8192
-
 from chain import Chain
 from portfolio import Portfolio
 from utils import clean_text
-from langchain.document_loaders import WebBaseLoader
+from langchain_community.document_loaders import WebBaseLoader
 import streamlit as st
 
 def create_streamlit_app(llm, portfolio, clean_text):
@@ -27,7 +25,7 @@ def create_streamlit_app(llm, portfolio, clean_text):
             st.error(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-        chain = Chain()
-        portfolio = Portfolio()
-        st.set_page_config(layout="wide", page_title="Cold Email Generator", page_icon="")
-        create_streamlit_app(chain, portfolio, clean_text)
+    chain = Chain()
+    portfolio = Portfolio()
+    st.set_page_config(layout="wide", page_title="Cold Email Generator", page_icon="")
+    create_streamlit_app(chain, portfolio, clean_text)

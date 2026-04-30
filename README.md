@@ -1,54 +1,37 @@
-# Cold Email Generator using LangChain and LLaMA
+# Cold Email Generator
 
-## Overview
-This project is a Cold Email Generator that leverages the power of **LangChain** and **LLaMA** to generate personalized cold emails. It uses **ChromaDB** as a vector database and **Streamlit** for the UI. The project enables users to create effective, AI-generated emails for various purposes, such as marketing, networking, and business outreach.
+This project is a Streamlit app that reads a job post from a URL, extracts the job details with Groq + LangChain, and generates a tailored cold email using your portfolio links.
 
-## Features
-- Generates cold emails using **LLaMA** and **LangChain**.
-- Stores and retrieves relevant data using **ChromaDB**.
-- Provides a user-friendly interface via **Streamlit**.
-- Supports environment variable management with **dotenv**.
-- Utilizes web scraping tools like **BeautifulSoup4** for additional data gathering.
-
-## Installation
-To run this project locally, ensure you have Python installed and run the following commands:
+## Local Setup
 
 ```bash
-pip install langchain
-pip install -qU langchain-groq
-pip install chromadb
-pip install streamlit
-pip install dotenv
-pip install -qU langchain_community beautifulsoup4
+pip install -r requirements.txt
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+streamlit run main.py
 ```
 
-## Usage
-1. Clone this repository:
-   ```bash
-   git clone <repository_url>
-   cd cold-email-generator
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the Streamlit application:
-   ```bash
-   streamlit run main.py
-   ```
-4. Use the web interface to generate cold emails based on your input criteria.
+Add your Groq key to `.streamlit/secrets.toml` or a local `.env` file:
 
-## Technologies Used
-- **LangChain**: Framework for building applications with LLMs.
-- **LLaMA**: Language model for generating emails.
-- **ChromaDB**: Vector database for semantic search.
-- **Streamlit**: Interactive UI framework.
-- **dotenv**: Environment variable management.
-- **BeautifulSoup4**: Web scraping for relevant data.
+```toml
+GROQ_API_KEY = "your_groq_api_key"
+```
 
-## Contribution
-Feel free to contribute to this project by submitting pull requests or reporting issues.
+## Free Deployment
 
----
-Made with ❤️ using LangChain and LLaMA.
+This app is prepared for **Streamlit Community Cloud**.
 
+1. Push this folder to GitHub.
+2. Open `https://share.streamlit.io/`.
+3. Click **Create app**.
+4. Select this repository and set the entrypoint file to `main.py`.
+5. In **Advanced settings**, choose Python `3.12`.
+6. Paste the contents of your secret file and deploy.
+
+Detailed steps are in `DEPLOYMENT.md`.
+
+## Project Files
+
+- `main.py` contains the Streamlit UI.
+- `chain.py` handles job extraction and email generation.
+- `portfolio.py` loads portfolio data into ChromaDB.
+- `Portfolio.csv` stores the skill/link pairs used in email generation.
