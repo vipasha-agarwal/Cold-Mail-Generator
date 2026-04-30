@@ -1,6 +1,6 @@
 # Cold Email Generator
 
-This project is a Streamlit app that reads a job post from a URL, extracts the job details with Groq + LangChain, and generates a tailored cold email using your portfolio links.
+This project is a Streamlit app that reads a public job post URL, extracts the job details with Groq, and generates a tailored cold email using portfolio links from `Portfolio.csv`.
 
 ## Local Setup
 
@@ -32,6 +32,6 @@ Detailed steps are in `DEPLOYMENT.md`.
 ## Project Files
 
 - `main.py` contains the Streamlit UI.
-- `chain.py` handles job extraction and email generation.
-- `portfolio.py` loads portfolio data into ChromaDB.
+- `chain.py` handles Groq-based job extraction and email generation.
+- `portfolio.py` matches skills to links from `Portfolio.csv`.
 - `Portfolio.csv` stores the skill/link pairs used in email generation.
